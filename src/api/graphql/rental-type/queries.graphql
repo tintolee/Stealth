@@ -1,0 +1,8 @@
+query GetRentalTypes($args: RentalTypeFilterInput){
+  rentalTypes(where: $args){
+    id
+    name
+    label
+    category
+  }
+}

@@ -1,0 +1,37 @@
+#import "./rental.fragments.graphql"
+
+mutation createRental ($args: CreateRentalInput!) {
+  rental{
+    create(input: $args) {
+      ...rentalFull
+    }
+  }
+}
+
+mutation setRentalUnits($id: String!, $units: [RentalUnit!]) {
+  rental{
+    update(input: {
+      id: $id,
+      data: {
+        units: $units
+      }
+    }) {
+    ...rentalFull
+    }
+  }
+}
+
+
+mutation updateRentalAddressInfo($id: String!,$AddressInput:AddressInput!) {
+  rental{
+    update(input: {
+      id: $id,
+      data: {
+        address:$AddressInput
+      }
+    }) {
+    ...rentalFull
+    }
+  }
+}
+

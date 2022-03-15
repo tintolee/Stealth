@@ -1,0 +1,81 @@
+fragment rentalFull on Rental {
+  id
+  name
+  normalizedAddress
+  address{
+    id
+    line
+    line2
+    city
+    state
+    postalCode
+    country
+  }
+  rentalType{
+    id
+    name
+    category
+    description
+  }
+  status
+  rentalOwner{
+    firstName
+    lastName
+    email
+    phone
+    company
+  }
+  units{
+    id
+    status
+    amenities{
+      bathrooms
+      bedrooms
+      toilets
+      others
+      parkingSpace
+    }
+    occupant{
+      name
+      email
+      phone
+    }
+  }
+}
+
+fragment rentalList on Rental {
+  id
+  name
+  normalizedAddress
+  rentalType{
+    name
+    category
+  }
+  status
+  rentalOwner{
+   lastName
+   firstName
+  }
+  units{
+    id
+    status
+    amenities{
+      bathrooms
+      bedrooms
+      toilets
+      others
+      parkingSpace
+    }
+    occupant{
+      name
+    }
+  }
+}
+
+fragment applications on Application{
+
+  id
+  applicant
+  unit
+}
+
