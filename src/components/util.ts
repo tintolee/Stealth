@@ -1,26 +1,6 @@
 import styled from 'styled-components/native';
-import { parse, isDate } from 'date-fns';
 
 export const Container = styled.SafeAreaView`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  background-color: #1e1e1e;
-`;
-
-export const DarkContainer = styled.SafeAreaView`
-  flex: 1;
-  background-color: #1e1e1e;
-`;
-
-export const ScrollContainer = styled.ScrollView`
-  /* flex: 1;
-  justify-content: center;
-  align-items: center;
-  background-color: #1e1e1e; */
-`;
-
-export const KeyboardAvoidingContainer = styled.KeyboardAvoidingView`
   flex: 1;
   justify-content: center;
   align-items: center;
@@ -61,7 +41,7 @@ export const Text = styled.Text<CustomTextProps>`
       case subheading:
         return `font-size: 24px;`;
       case large:
-        return `font-size: 25px;`;
+        return `font-size: 18px;`;
       case medium:
         return `font-size: 15px;`;
       case small:
@@ -107,28 +87,5 @@ export const HeaderText = styled(Text)`
   margin-top: 30px;
   margin-bottom: 10px;
 `;
-
-export const CancelButton = styled.TouchableOpacity`
-  margin-top: 60px;
-`;
-
-export const parseDateString = (
-  _: string | any,
-  originalValue: string | any,
-): any =>
-  isDate(originalValue)
-    ? originalValue
-    : parse(originalValue, 'dd/MM/yyyy', new Date());
-
-export const omit = (
-  obj: Record<string, unknown>,
-  arr: string[],
-): Record<string, unknown> =>
-  Object.keys(obj)
-    .filter(k => !arr.includes(k))
-    .reduce((acc, key) => {
-      acc[key] = obj[key];
-      return acc;
-    }, {} as Record<string, unknown>);
 
 export type GenericCallback = () => void;

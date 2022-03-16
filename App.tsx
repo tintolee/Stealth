@@ -1,8 +1,9 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
 import { Main } from './src/stacks';
+
+// Import the functions you need from the SDKs you need
 
 const AppStack = createNativeStackNavigator();
 
